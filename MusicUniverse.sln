@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C49B111C-3813-41C2-945D-A13FF3B3344D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{95090D20-4558-45E1-9F84-366169F6FC44}"
-	ProjectSection(SolutionItems) = preProject
-		src\MusicUniverse.Persistence\MusicUniverse.Persistence.csproj = src\MusicUniverse.Persistence\MusicUniverse.Persistence.csproj
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E448FFD0-1704-4212-BDED-95C216B140F5}"
 EndProject
@@ -23,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicUniverse.Infrastructure", "src\MusicUniverse.Infrastructure\MusicUniverse.Infrastructure.csproj", "{68184BAF-4F31-434F-81C8-3C0B15C0FFE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicUniverse.WebPortal", "src\MusicUniverse.WebPortal\MusicUniverse.WebPortal.csproj", "{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicUniverse.Persistence", "src\MusicUniverse.Persistence\MusicUniverse.Persistence.csproj", "{3CD099E0-F9B5-4495-B387-621FF5B4321B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +49,10 @@ Global
 		{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD099E0-F9B5-4495-B387-621FF5B4321B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD099E0-F9B5-4495-B387-621FF5B4321B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD099E0-F9B5-4495-B387-621FF5B4321B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD099E0-F9B5-4495-B387-621FF5B4321B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +66,7 @@ Global
 		{CE158E46-2FD8-4F74-B7BA-EDB4809A7399} = {C49B111C-3813-41C2-945D-A13FF3B3344D}
 		{68184BAF-4F31-434F-81C8-3C0B15C0FFE6} = {95090D20-4558-45E1-9F84-366169F6FC44}
 		{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF} = {E448FFD0-1704-4212-BDED-95C216B140F5}
+		{3CD099E0-F9B5-4495-B387-621FF5B4321B} = {95090D20-4558-45E1-9F84-366169F6FC44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724E4CFF-A6EC-45A9-956D-11D206ABB41B}
