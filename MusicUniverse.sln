@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicUniverse.WebPortal", "MusicUniverse.WebPortal\MusicUniverse.WebPortal.csproj", "{A7A65D4E-15B7-4C43-88A5-11CC9F65D1E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicUniverse.WebPortal", "MusicUniverse.WebPortal\MusicUniverse.WebPortal.csproj", "{A7A65D4E-15B7-4C43-88A5-11CC9F65D1E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C49B111C-3813-41C2-945D-A13FF3B3344D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{95090D20-4558-45E1-9F84-366169F6FC44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E448FFD0-1704-4212-BDED-95C216B140F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F2B8364-F08C-4C98-84E4-85FE191688DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +26,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7A65D4E-15B7-4C43-88A5-11CC9F65D1E3} = {E448FFD0-1704-4212-BDED-95C216B140F5}
+		{C49B111C-3813-41C2-945D-A13FF3B3344D} = {5F2B8364-F08C-4C98-84E4-85FE191688DF}
+		{95090D20-4558-45E1-9F84-366169F6FC44} = {5F2B8364-F08C-4C98-84E4-85FE191688DF}
+		{E448FFD0-1704-4212-BDED-95C216B140F5} = {5F2B8364-F08C-4C98-84E4-85FE191688DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724E4CFF-A6EC-45A9-956D-11D206ABB41B}
