@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-export default class Home extends Component {
-    static displayName = Home.name;
+export default class Artists extends Component {
+    static displayName = Artists.name;
 
     render () {
         return (
             <div>
-                <h1>Home Page</h1>
+                <h1>Artists page</h1>
             </div>
         )
     }
