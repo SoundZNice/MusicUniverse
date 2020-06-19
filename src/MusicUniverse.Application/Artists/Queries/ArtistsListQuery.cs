@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MusicUniverse.Application.Common.ViewModels;
 
 namespace MusicUniverse.Application.Artists.Queries
 {
@@ -37,7 +38,7 @@ namespace MusicUniverse.Application.Artists.Queries
 
             return new ArtistsListViewModel
             {
-                List = artists.Select(a => _mapper.Map<ArtistDto>(a)).ToList()
+                List = artists.Select(a => _mapper.Map<ArtistViewModel>(a)).ToList()
             };
         }
     }
