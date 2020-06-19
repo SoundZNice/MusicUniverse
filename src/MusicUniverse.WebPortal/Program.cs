@@ -1,19 +1,47 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using log4net.Core;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MusicUniverse.Application.System.Seed;
+using MusicUniverse.Persistence;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MusicUniverse.WebPortal
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = CreateWebHostBuilder(args).Build();
+
+            using(var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                try
+                {
+                    var musicContext = services.GetRequiredService<MusicUniverseDbContext>();
+                    musicContext.Database.Migrate();
+
+                    if (args.Contains("-seed"))
+                    {
+                        var seedServcie = services.GetRequiredService<IDbSeedService>();
+                        await seedServcie.SeedAsync(CancellationToken.None);
+                    }
+                }
+                catch(Exception e)
+                {
+                    var log = services.GetRequiredService<ILogger<Program>>();
+                    log.LogError($"Db migration or seeding is failed! Message: {e.Message}, Trace: {e.StackTrace}");                  
+                }
+            }
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

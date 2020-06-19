@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MusicUniverse.Domain.Common
 {
-    public class AuditibleEntity
+    public class AuditableEntity
     {
         public DateTime CreatedOn { get; set; }
 
