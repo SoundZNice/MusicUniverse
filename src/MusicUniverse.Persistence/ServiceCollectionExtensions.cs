@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MusicUniverse.Application.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using MusicUniverse.Application.Common.Behaviours;
 
 namespace MusicUniverse.Persistence
 {
@@ -16,6 +15,8 @@ namespace MusicUniverse.Persistence
                 options.UseSqlServer(configuration.GetConnectionString("MusicUniverseDatabase")));
 
             services.AddScoped<IMusicUniverseDbContext>(provider => provider.GetService<MusicUniverseDbContext>());
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
             return services;
         }
