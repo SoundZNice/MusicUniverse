@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicUniverse.Application\MusicUniverse.Application.csproj" />
     <ProjectReference Include="..\MusicUniverse.Domain\MusicUniverse.Domain.csproj" />
   </ItemGroup>
 

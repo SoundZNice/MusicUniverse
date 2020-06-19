@@ -6,6 +6,7 @@ namespace MusicUniverse.Domain.Entities
 {
     public class ArtistsGenres
     {
+        public long Id { get; set; }
         public long ArtistId { get; set; }
         public int MusicGenreId { get; set; }
     }

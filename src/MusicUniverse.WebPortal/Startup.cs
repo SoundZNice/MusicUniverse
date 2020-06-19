@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using MusicUniverse.Application;
 using MusicUniverse.Persistence;
 
 namespace MusicUniverse.WebPortal
@@ -20,12 +22,19 @@ namespace MusicUniverse.WebPortal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddMusicUniverseDbContext(Configuration);
+            services.AddApplication();
 
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddLogging(options => options
+                .SetMinimumLevel(LogLevel.Information)
+                .AddLog4Net("log4net.config")
+                .AddConsole());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -61,7 +70,7 @@ namespace MusicUniverse.WebPortal
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
-            });
+            });            
         }
     }
 }

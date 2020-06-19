@@ -1,10 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+using MusicUniverse.Application.Common.Interfaces;
+using MusicUniverse.Domain.Common;
 using MusicUniverse.Domain.Entities;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MusicUniverse.Persistence
 {
-    public class MusicUniverseDbContext : DbContext
+    public class MusicUniverseDbContext : DbContext, IMusicUniverseDbContext
     {
         public DbSet<Artist> Artists { get; set; }
         public DbSet<ArtistsGenres> ArtistsGenres { get; set; }
@@ -15,6 +19,24 @@ namespace MusicUniverse.Persistence
             : base(options)
         {
 
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            foreach (var entry in ChangeTracker.Entries<AuditableEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreatedOn = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.ModifiedOn = DateTime.Now;
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
