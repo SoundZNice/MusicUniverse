@@ -21,6 +21,8 @@ namespace MusicUniverse.Domain.Entities
 
         public int CountryId { get; set; }
 
+        public Country Country { get; set; }
+
         public ICollection<ArtistsGenres> ArtistsGenres { get; private set; }
     }
 }
