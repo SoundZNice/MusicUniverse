@@ -10,9 +10,9 @@ namespace MusicUniverse.Application.Common.Behaviours
 {
     public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
-        private readonly Logger<LoggingBehavior<TRequest, TResponse>> _log;
+        private readonly ILogger<TRequest> _log;
 
-        public LoggingBehavior(Logger<LoggingBehavior<TRequest, TResponse>> log)
+        public LoggingBehavior(ILogger<TRequest> log)
         {
             _log = log;
         }

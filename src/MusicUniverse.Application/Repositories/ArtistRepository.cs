@@ -3,10 +3,8 @@ using Microsoft.Extensions.Logging;
 using MusicUniverse.Application.Common.Interfaces;
 using MusicUniverse.Application.Repositories.Abstractions;
 using MusicUniverse.Domain.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicUniverse.Application.Repositories
@@ -15,9 +13,9 @@ namespace MusicUniverse.Application.Repositories
     {
         private readonly IMusicUniverseDbContext _dbContext;
 
-        private readonly Logger<ArtistRepository> _log;
+        private readonly ILogger<ArtistRepository> _log;
 
-        public ArtistRepository(IMusicUniverseDbContext ctx, Logger<ArtistRepository> log)
+        public ArtistRepository(IMusicUniverseDbContext ctx, ILogger<ArtistRepository> log)
         {
             _dbContext = ctx;
             _log = log;
@@ -25,15 +23,18 @@ namespace MusicUniverse.Application.Repositories
 
         public async Task<IReadOnlyCollection<Artist>> GetArtistsAsync()
         {
+            _log.LogDebug("Retrieving artists...");
+
             return await _dbContext.Artists
                 .Include(a => a.ArtistsGenres)
+                    .ThenInclude(ag => ag.MusicGenre)
                 .Include(a => a.Country)
-                .Include(a => a.ArtistsGenres.Select(g => g.MusicGenre))
                 .ToListAsync();
         }
 
         public Task<int> GetArtistsCount()
         {
+            _log.LogDebug("Retrieving artists count...");
             return _dbContext.Artists.CountAsync();
         }
     }

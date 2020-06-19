@@ -27,8 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{878782C6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpersTool.ConsoleApp", "HelpersTool.ConsoleApp\HelpersTool.ConsoleApp.csproj", "{0F413801-ED07-4C52-8E4B-783381B5547C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicUniverse.Services", "MusicUniverse.Services\MusicUniverse.Services.csproj", "{E4898A2E-8BF8-4807-A007-1B0DB1C851A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,10 +61,6 @@ Global
 		{0F413801-ED07-4C52-8E4B-783381B5547C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F413801-ED07-4C52-8E4B-783381B5547C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F413801-ED07-4C52-8E4B-783381B5547C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4898A2E-8BF8-4807-A007-1B0DB1C851A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4898A2E-8BF8-4807-A007-1B0DB1C851A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4898A2E-8BF8-4807-A007-1B0DB1C851A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4898A2E-8BF8-4807-A007-1B0DB1C851A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,7 +76,6 @@ Global
 		{3C50B9A1-A5A6-4A7C-9532-2593849B6FDF} = {E448FFD0-1704-4212-BDED-95C216B140F5}
 		{3CD099E0-F9B5-4495-B387-621FF5B4321B} = {95090D20-4558-45E1-9F84-366169F6FC44}
 		{0F413801-ED07-4C52-8E4B-783381B5547C} = {878782C6-BDBD-41CE-8503-485B6B3D82C5}
-		{E4898A2E-8BF8-4807-A007-1B0DB1C851A2} = {C49B111C-3813-41C2-945D-A13FF3B3344D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724E4CFF-A6EC-45A9-956D-11D206ABB41B}
