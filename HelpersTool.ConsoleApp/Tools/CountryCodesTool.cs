@@ -29,12 +29,11 @@ namespace HelpersTool.ConsoleApp.Tools
 
             var countries = JsonConvert.DeserializeObject<CountryCode[]>(content);
 
-            int i = 1;
             string outputContent = string.Empty;
 
             foreach (var country in countries)
             {
-                outputContent += $"new Country() {{ Id = {i++},Code = \"{country.Code}\", Name = \"{country.Name}\"}},\n";
+                outputContent += $"new Country() {{ Code = \"{country.Code}\", Name = \"{country.Name}\"}},\n";
             }
 
             using (var sw = new StreamWriter(_outFileName))

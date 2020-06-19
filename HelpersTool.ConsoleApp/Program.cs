@@ -7,10 +7,10 @@ namespace HelpersTool.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var @in = "genres.txt";
+            var @in = "countrycodes.txt";
             var @out = "out.txt";
 
-            var tool = new MusicGenresTool(@in, @out, Log);
+            var tool = new CountryCodesTool(@in, @out, Log);
             tool.Run();
         }
         

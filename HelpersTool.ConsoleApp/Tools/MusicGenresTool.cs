@@ -27,12 +27,11 @@ namespace HelpersTool.ConsoleApp.Tools
             content.Replace("\n", "");            
             var genres = content.Split(',');
 
-            int i = 1;
             string outputContent = string.Empty;
 
             foreach (var genre in genres)
             {
-                outputContent += $"new MusicGenre() {{ Id = { i++ }, Name = \"{genre}\" }},\n";
+                outputContent += $"new MusicGenre() {{ Name = \"{genre}\" }},\n";
             }
 
             using (var sw = new StreamWriter(_out))

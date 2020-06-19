@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using MusicUniverse.Application.System.Seed;
 using MusicUniverse.Persistence;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,8 +28,11 @@ namespace MusicUniverse.WebPortal
                     var musicContext = services.GetRequiredService<MusicUniverseDbContext>();
                     musicContext.Database.Migrate();
 
-                    var seedServcie = services.GetRequiredService<IDbSeedService>();
-                    await seedServcie.SeedAsync(CancellationToken.None);
+                    if (args.Contains("-seed"))
+                    {
+                        var seedServcie = services.GetRequiredService<IDbSeedService>();
+                        await seedServcie.SeedAsync(CancellationToken.None);
+                    }
                 }
                 catch(Exception e)
                 {

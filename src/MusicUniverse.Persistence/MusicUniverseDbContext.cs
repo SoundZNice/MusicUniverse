@@ -38,5 +38,10 @@ namespace MusicUniverse.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MusicUniverseDbContext).Assembly);
+        }
     }
 }
