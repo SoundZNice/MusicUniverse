@@ -1,5 +1,6 @@
 import Home from './Home'
 import Artists from './Artists'
+import Error from './Error'
 
 export const routes = {};
 
@@ -17,7 +18,7 @@ export const routes = {};
             nav: true
         },{
             route: '/500',
-            component: null
+            component: Error
         }
     ];
 

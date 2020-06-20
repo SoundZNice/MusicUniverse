@@ -10,7 +10,7 @@ namespace MusicUniverse.WebPortal.Controllers
     public class ArtistController : BaseController
     {
         [HttpGet]
-        [Route("artists")]
+        [Route("api/artists")]
         public async Task<IActionResult> GetList()
         {
             return Ok(await Mediator.Send(new ArtistsListQuery()));

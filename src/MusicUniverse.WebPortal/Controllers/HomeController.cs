@@ -10,7 +10,7 @@ namespace MusicUniverse.WebPortal.Controllers
     public class HomeController : BaseController
     {
         [HttpGet]
-        [Route("home")]
+        [Route("api/home")]
         public async Task<IActionResult> Home()
         {
             return Ok(await Mediator.Send(new HomePageQuery()));
