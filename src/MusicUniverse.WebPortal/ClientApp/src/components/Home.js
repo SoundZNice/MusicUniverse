@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { home } from './fetch.js'
+import Load from './Load.js'
 
 export default class Home extends Component {
     static displayName = Home.name;
@@ -10,21 +11,29 @@ export default class Home extends Component {
         this.state = {
             loaded: false
         }
+        this.mounted = false;
     }
 
     async componentDidMount ()  {
+        this.mounted = true;
         var res = await home();
-        this.setState({
-            loaded: true,
-            data: res,
-            failed: res.failed
-        })
+
+        if (this.mounted)
+            this.setState({
+                loaded: true,
+                data: res,
+                failed: res.failed
+            })
+    }
+
+    componentWillUnmount(){
+        this.mounted = false;
     }
 
     render () {
         let content;
         if (!this.state.loaded)
-            content = <label>loading...</label>
+            content = <Load/>;
         else if (!this.state.failed && this.state.data)
             content = <label>Currently we have {this.state.data.artistsCount} artists!</label>
         else

@@ -38,7 +38,8 @@ namespace MusicUniverse.Application.Artists.Queries
 
             return new ArtistsListViewModel
             {
-                List = artists.Select(a => _mapper.Map<ArtistViewModel>(a)).ToList()
+                List = artists.Select(a => _mapper.Map<ArtistViewModel>(a)).ToList(),
+                Count = artists.Count
             };
         }
     }
