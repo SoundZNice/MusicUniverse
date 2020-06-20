@@ -6,7 +6,7 @@ export default class Error extends Component{
         return(
             <div>
                 <h1>Ups... :(</h1>
-                <img src={sorry}></img>
+                <img src={sorry} alt="sowwie"></img>
             </div>
         )
     }

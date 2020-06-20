@@ -29,6 +29,7 @@ namespace MusicUniverse.Application.Repositories
                 .Include(a => a.ArtistsGenres)
                     .ThenInclude(ag => ag.MusicGenre)
                 .Include(a => a.Country)
+                .Include(a => a.Image)
                 .ToListAsync();
         }
 

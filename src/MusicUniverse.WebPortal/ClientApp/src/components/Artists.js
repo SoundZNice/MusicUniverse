@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { artists } from './fetch.js'
 import Load from './Load.js'
 import { Table } from 'reactstrap';
+import { Image } from './image.js'
 
 export default class Artists extends Component {
     static displayName = Artists.name;
@@ -55,13 +56,21 @@ export default class Artists extends Component {
     }
 }
 
-export const Artist = props => (
-    <tr>
-        <td><img src={props.obj.image}></img></td>
+export const Artist = props => {
+    let img;
+    if (props.obj.image)
+        img = <Image 
+            name={props.obj.image.name} 
+            format={props.obj.image.format} 
+            content={props.obj.image.base64Content} />
+    
+    return (<tr>
+        <td>{img}
+        </td>
         <td>{props.obj.name}</td>
         <td>{props.obj.countryName}</td>
         <td>{props.obj.genres.join(', ')}</td>
         <td>{props.obj.description}</td>
-    </tr>
-) 
+    </tr>)
+}
 

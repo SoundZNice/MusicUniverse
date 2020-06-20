@@ -14,6 +14,7 @@ namespace MusicUniverse.Persistence
         public DbSet<ArtistsGenres> ArtistsGenres { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<MusicGenre> Genres { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         public MusicUniverseDbContext(DbContextOptions<MusicUniverseDbContext> options)
             : base(options)
