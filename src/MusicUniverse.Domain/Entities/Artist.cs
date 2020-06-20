@@ -15,7 +15,8 @@ namespace MusicUniverse.Domain.Entities
 
         public string Name { get; set; }
 
-        public byte[] Image { get; set; }
+        public int? ImageId { get; set; }
+        public Image Image { get; set; }
 
         public string Description { get; set; }
 

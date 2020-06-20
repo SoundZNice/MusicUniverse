@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MusicUniverse.Application.Common.Mappings;
+using MusicUniverse.Application.Common.Models;
 using MusicUniverse.Domain.Entities;
 using System.Linq;
 
@@ -9,7 +10,7 @@ namespace MusicUniverse.Application.Common.ViewModels
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public byte[] Image { get; set; }
+        public ImageDto Image { get; set; }
         public string Description { get; set; }
         public string CountryName { get; set; }
         public string CountryCode { get; set; }
@@ -20,7 +21,8 @@ namespace MusicUniverse.Application.Common.ViewModels
             profile.CreateMap<Artist, ArtistViewModel>()
                 .ForMember(dest => dest.CountryCode, src => src.MapFrom(s => s.Country.Code))
                 .ForMember(dest => dest.CountryName, src => src.MapFrom(s => s.Country.Name))
-                .ForMember(dest => dest.Genres, src => src.MapFrom(s => s.ArtistsGenres.Select(ag => ag.MusicGenre.Name)));
+                .ForMember(dest => dest.Genres, src => src.MapFrom(s => s.ArtistsGenres.Select(ag => ag.MusicGenre.Name)))
+                .ForMember(dest => dest.Image, src => src.MapFrom(s => s.Image));
         }
     }
 }
