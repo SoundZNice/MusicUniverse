@@ -33,10 +33,15 @@ namespace MusicUniverse.Application.Repositories
                 .ToListAsync();
         }
 
-        public Task<int> GetArtistsCount()
+        public Task<int> GetArtistsCountAsync()
         {
             _log.LogDebug("Retrieving artists count...");
             return _dbContext.Artists.CountAsync();
+        }
+
+        public Task<bool> IsInDbAsync(int artistId)
+        {
+            return _dbContext.Artists.AnyAsync(a => a.Id == artistId);
         }
     }
 }

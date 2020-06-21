@@ -15,6 +15,8 @@ namespace MusicUniverse.Application.Common.Interfaces
         DbSet<Country> Countries { get; set; }
         DbSet<MusicGenre> Genres { get; set; }
         DbSet<Image> Images { get; set; }
+        DbSet<Composition> Compositions { get; set; }
+        DbSet<Album> Albums { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

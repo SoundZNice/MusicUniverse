@@ -25,6 +25,11 @@ namespace MusicUniverse.Application
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IImageRepository, ImageRepository>();
 
+            services.AddScoped<ICompositionService, CompositionService>();
+            services.AddScoped<ICompositionRepository, CompositionRepository>();
+
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
+
             return services;
         }
     }
