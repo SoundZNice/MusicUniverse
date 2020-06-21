@@ -3,61 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicUniverse.Persistence;
 
 namespace MusicUniverse.Persistence.Migrations
 {
     [DbContext(typeof(MusicUniverseDbContext))]
-    partial class MusicUniverseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200620225539_composition_album")]
+    partial class composition_album
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("MusicUniverse.Domain.Entities.Album", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ArtistId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("ArtistId1")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArtistId1");
-
-                    b.HasIndex("ImageId");
-
-                    b.ToTable("Albums");
-                });
 
             modelBuilder.Entity("MusicUniverse.Domain.Entities.Artist", b =>
                 {
@@ -113,57 +75,6 @@ namespace MusicUniverse.Persistence.Migrations
                     b.HasIndex("MusicGenreId");
 
                     b.ToTable("ArtistsGenres");
-                });
-
-            modelBuilder.Entity("MusicUniverse.Domain.Entities.Composition", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AlbumId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ArtistId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("ArtistId1")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Lyrics")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AlbumId");
-
-                    b.HasIndex("ArtistId1");
-
-                    b.HasIndex("ImageId");
-
-                    b.ToTable("Compositions");
                 });
 
             modelBuilder.Entity("MusicUniverse.Domain.Entities.Country", b =>
@@ -223,17 +134,6 @@ namespace MusicUniverse.Persistence.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("MusicUniverse.Domain.Entities.Album", b =>
-                {
-                    b.HasOne("MusicUniverse.Domain.Entities.Artist", "Artist")
-                        .WithMany()
-                        .HasForeignKey("ArtistId1");
-
-                    b.HasOne("MusicUniverse.Domain.Entities.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
-                });
-
             modelBuilder.Entity("MusicUniverse.Domain.Entities.Artist", b =>
                 {
                     b.HasOne("MusicUniverse.Domain.Entities.Country", "Country")
@@ -260,21 +160,6 @@ namespace MusicUniverse.Persistence.Migrations
                         .HasForeignKey("MusicGenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MusicUniverse.Domain.Entities.Composition", b =>
-                {
-                    b.HasOne("MusicUniverse.Domain.Entities.Album", "Album")
-                        .WithMany("Compositions")
-                        .HasForeignKey("AlbumId");
-
-                    b.HasOne("MusicUniverse.Domain.Entities.Artist", "Artist")
-                        .WithMany("Compositions")
-                        .HasForeignKey("ArtistId1");
-
-                    b.HasOne("MusicUniverse.Domain.Entities.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
                 });
 #pragma warning restore 612, 618
         }

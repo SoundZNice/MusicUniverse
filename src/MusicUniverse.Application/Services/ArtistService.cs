@@ -24,7 +24,7 @@ namespace MusicUniverse.Application.Services
 
         public Task<int> GetArtstsCountAsync()
         {
-            return _artistRepository.GetArtistsCount();
+            return _artistRepository.GetArtistsCountAsync();
         }
     }
 }

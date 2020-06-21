@@ -9,6 +9,7 @@ namespace MusicUniverse.Domain.Entities
         public Artist()
         {
             ArtistsGenres = new HashSet<ArtistsGenres>();
+            Compositions = new HashSet<Composition>();
         }
 
         public long Id { get; set; }
@@ -16,14 +17,15 @@ namespace MusicUniverse.Domain.Entities
         public string Name { get; set; }
 
         public int? ImageId { get; set; }
-        public Image Image { get; set; }
 
         public string Description { get; set; }
 
         public int CountryId { get; set; }
 
         public Country Country { get; set; }
+        public Image Image { get; set; }
 
         public ICollection<ArtistsGenres> ArtistsGenres { get; private set; }
+        public ICollection<Composition> Compositions { get; private set; }
     }
 }

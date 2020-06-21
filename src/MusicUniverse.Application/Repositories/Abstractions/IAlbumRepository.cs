@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace MusicUniverse.Application.Repositories.Abstractions
 {
-    public interface IArtistRepository
+    public interface IAlbumRepository
     {
-        Task<IReadOnlyCollection<Artist>> GetArtistsAsync();
+        Task<bool> IsInDbAsync(int albumId);
 
-        Task<int> GetArtistsCountAsync();
-
-        Task<bool> IsInDbAsync(int artistId);
+        Task<IList<Album>> GetListByArtistIdAsync(int artistId);
     }
 }
